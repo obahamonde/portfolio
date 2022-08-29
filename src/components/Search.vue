@@ -2,7 +2,7 @@
     import { ComputedRef } from 'vue';
     
     const search = ref("")
-    const results = ref([""])
+    const results = ref([])
     const page = ref(0)
     const lang = ref('en')
     const speech = useSpeechRecognition({
@@ -110,10 +110,7 @@
             @click="searchQueryspeech" />
         </div>
     </div>
-    <div v-if="fetching" col center>
-        <Loading />
-    </div>
-        <div v-if="results">
+        <div v-if="unref(results).length>0">
         <div v-for="r in unref(results)" col center>
           <a :href="r.url" text-sm underline m-2 hover:text-primary >{{  r.title  }}</a>
         </div>
