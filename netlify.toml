@@ -9,7 +9,7 @@ publish = "dist"
 
 [[redirects]]
 from = "/api/*"
-to = "https://smartpro.solutions/:splat"
+to = "https://smartpro.solutions/api/:splat"
 status = 200    
 
 ## Uncomment to deploy site to a custom domain
