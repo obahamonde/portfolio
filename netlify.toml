@@ -9,8 +9,8 @@ publish = "dist"
 
 [[redirects]]
 from = "/api/*"
-to = "https://smartpro.solutions/api/:splat"
-status = 200
+to = "https://smartpro.solutions/:splat"
+status = 200    
 
 ## Uncomment to deploy site to a custom domain
 ## Make sure to add a custom domain in your Netlify site settings
