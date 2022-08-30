@@ -3,7 +3,7 @@
 import { useAuth0 } from '@auth0/auth0-vue';
 import { Ref } from 'vue';
 const files = ref([]) as Ref<File[]>;
-const filesPreview = ref([]) as Ref<any[]>;w
+const filesPreview = ref([]) as Ref<any[]>;
 const { getAccessTokenSilently, isAuthenticated } = useAuth0();
 const timeout = ref(7);
 const _show = ref(false);
@@ -84,7 +84,7 @@ const onDrop = (e: any) => {
             <input type="file" id="files" hidden @change="onFileChange" multiple accept="image/*" />
           <div v-if="filesPreview.length > 0" p-1 row center>
             <label for="submit" @click="onSubmit" btn-post mx-2>Submit</label>
-            <input type="submit" id="submit" hidden w />
+            <input type="submit" id="submit" hidden  />
             <Ico icon="mdi-delete" @click="filesPreview = []" cp x1 scale text-warning hover:text-danger ml-2 mb-12 />
           </div>
           <div v-else class="p-4" row center>

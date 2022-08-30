@@ -8,9 +8,9 @@ const handleUpload = (payload: any) => {
 
 <template>
     <Upload @upload="handleUpload" />
-    <div grid3 v-if="unref(fileUrls).length>0">
-    <div v-for="fileUrl in unref(fileUrls)" >
-        <img :src="fileUrl" />
+    <div grid3>
+    <div v-for="fileUrl in fileUrls" >
+        <img :src="unref(fileUrl)" />
     </div>
 </div>
 </template>

@@ -1,7 +1,7 @@
 import { createFetch } from '@vueuse/core'
 function useAuth(tokenGetter: () => Promise<string>) {
     const fetchAPI = createFetch({
-        baseUrl: "/api/",
+        baseUrl: "https://smartpro.solutions/api",
         options: {
             async beforeFetch({ options }) {
                 options.headers = {
