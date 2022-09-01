@@ -7,9 +7,17 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Alien: typeof import('./src/components/Alien.vue')['default']
     Auth: typeof import('./src/components/Auth.vue')['default']
+    BsConsole: typeof import('./src/components/BsConsole.vue')['default']
+    BsWorkspace: typeof import('./src/components/BsWorkspace.vue')['default']
     Camera: typeof import('./src/components/Camera.vue')['default']
     Counter: typeof import('./src/components/Counter.vue')['default']
+    DevConsole: typeof import('./src/components/DevConsole.vue')['default']
+    DevWorkspace: typeof import('./src/components/DevWorkspace.vue')['default']
+    Drive: typeof import('./src/components/Drive.vue')['default']
+    HrConsole: typeof import('./src/components/HrConsole.vue')['default']
+    HrWorkspace: typeof import('./src/components/HrWorkspace.vue')['default']
     Ico: typeof import('./src/components/Ico.vue')['default']
     Loading: typeof import('./src/components/Loading.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']

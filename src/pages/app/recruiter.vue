@@ -1,0 +1,4 @@
+<template>
+<HrWorkspace />
+<HrConsole />
+</template>

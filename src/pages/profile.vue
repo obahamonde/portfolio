@@ -2,7 +2,7 @@
 import useAuth from '~/composables/auth';
 import { useAuth0 } from '@auth0/auth0-vue';
 const { getAccessTokenSilently } = useAuth0();
-const url = ref('/login')
+const url = ref('login')
 const { isFetching, error, data } = useAuth(getAccessTokenSilently)(url).json()
 </script>
 

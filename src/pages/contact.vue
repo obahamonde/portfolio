@@ -23,5 +23,5 @@ const onSubmit = () => {
         <button @click.prevent="onSubmit" btn-post>Submit</button>
     </div>
 
-    <Toast bg="success" toast="Email sent successfully!" :timeout="5" v-if="_show" />
+    <Toast bg="success" toast="Email sent successfully!" :timeout="7" v-if="_show" />
 </template>

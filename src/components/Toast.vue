@@ -1,7 +1,7 @@
 <template>
   <div v-if="show">
     <transition>
-      <div :bg="props.bg" tr fixed mt-16 p-2 row r slide-right>
+      <div :bg="props.bg" tr fixed mt-20 p-2 row r slide-right>
         {{ toast
         }}
         <Ico icon="mdi-check-circle" m-1 cp @click="hide" />

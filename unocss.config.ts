@@ -68,7 +68,7 @@ export default defineConfig({
       fonts: {
         sans: 'DM Sans',
         serif: 'DM Serif Display',
-        mono: 'DM Mono',
+        mono: 'Ubuntu Mono',
         script: 'Merienda',
       },
     }),

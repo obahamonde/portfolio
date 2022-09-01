@@ -5,7 +5,7 @@ const links = ref([
         text: 'Home',
         to: '/',
         icon: 'mdi-home',
-    },
+    },  
     {
         text: 'About',
         to: '/about',
@@ -16,14 +16,11 @@ const links = ref([
         to: '/contact',
         icon: 'mdi-email',
 
-    },
-    {
-        text: 'Demo',
-        to: '/demo',
-        icon: 'mdi-xml',
-
     }
 ])
+
+const now = ref(useNow())
+
 </script>
 <template>
 
@@ -40,6 +37,7 @@ const links = ref([
       <div dark:i-carbon-moon i-carbon-sun text-accent dark:text-primary ml-4 />
     </button>
 </nav>
+<h1 right-4 mt-1 font-mono font-extrabold fixed>{{now.toLocaleString()}}</h1>
 </template>
 <style scoped>
 .router-link-active {

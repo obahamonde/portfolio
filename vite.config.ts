@@ -15,6 +15,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
+        //target: 'https://smartpro.solutions/api',
         target: 'https://smartpro.solutions/api',
         changeOrigin: true,
         rewrite: path => path.replace(/^\/api/, '')

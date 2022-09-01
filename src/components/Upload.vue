@@ -1,5 +1,9 @@
 
 <script setup lang="ts">
+  const el = ref<HTMLElement | null>(null)
+const { style } = useDraggable(el, {
+    initialValue: { x: 660, y: 500 },
+})
 import { useAuth0 } from '@auth0/auth0-vue';
 import { Ref } from 'vue';
 const files = ref([]) as Ref<File[]>;
@@ -31,7 +35,7 @@ const onSubmit = async (e: any) => {
   files.value.forEach(async (file) => {
     const formData = new FormData();
     formData.append('file', file);
-    const response = await useFetch('/api/upload', {
+    const response = useFetch('/api/upload', {
       method: 'POST',
       body: formData,
       headers: {
@@ -72,6 +76,7 @@ const onDrop = (e: any) => {
 };
 </script>
 <template>
+    <div p-4 bg-gray-500 z-50 r shadow-success shadow-md cursor-move ref="el" :style="style" style="position: fixed;">
   <div v-if="isAuthenticated">
     <div>
       <form @submit.prevent="onSubmit">
@@ -116,5 +121,5 @@ const onDrop = (e: any) => {
       <div center>
         <Loading />
         </div>
-    </div>
+    </div></div>
 </template>

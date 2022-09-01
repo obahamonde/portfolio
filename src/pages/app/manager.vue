@@ -1,0 +1,4 @@
+<template>
+<BsConsole />
+<BsWorkspace />
+</template>
