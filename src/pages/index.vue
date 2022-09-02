@@ -20,9 +20,16 @@
                 link: "https://www.youtube.com/channel/UCSYqS3DhVLNBqoRKvjE4tGg"
             }
         ])
-    
-    const { data } = useFetch("https://programming-quotes-api.herokuapp.com/Quotes/random").json()
-    
+    const quote = reactive({
+        "value":{
+            "en": "The best way to predict your future is to create it.",
+        "author": "Abraham Lincoln"
+        }
+    })
+    const fetchQuote = ()=>{
+        const { data } = useFetch("https://programming-quotes-api.herokuapp.com/Quotes/random").json()
+        quote.value = data
+    }
     </script>
     
     <template>
@@ -58,12 +65,14 @@
     
                <h2 text-2xl w-192 mt-8 font-script animate-fade-in>I'm Oscar and I love building useful tools for
                     professional teams and individuals.</h2>
-                    <h2 mt-8 >Quote of the day 🤓</h2>
+                    <h2 mt-8 animate-fade-in  >new nerdy programming quote <strong text-secondary dark:text-success cp hover:underline
+                        @click="fetchQuote">here 🤓 </strong></h2>
+                        
              
-                    <blockquote text-sm w-192 font-script animate-fade-in-down  text-accent dark:text-primary>"{{  data.en 
+                    <blockquote text-sm w-192 font-script animate-fade-in  text-accent dark:text-primary>"{{  quote.value.en 
                     }}"</blockquote>
-                       <author text-sm w-192 font-sans animate-fade-in-down mt-2 text-black dark:text-white font-extrabold>-{{
-                     data.author  }}</author>
+                       <p text-sm w-192 font-sans animate-fade-in mt-2 text-black dark:text-white font-extrabold>-{{
+                     quote.value.author  }}</p>
     
                 <p mt-12 animate-fade-in>Please tell me who you are so you can have the nicest time here:</p>
                 <div grid2 gap-4 mt-12 animate-fade-in-up>

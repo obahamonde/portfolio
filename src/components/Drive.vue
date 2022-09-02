@@ -1,27 +1,28 @@
 <script setup lang="ts">
 import { useAuth0 } from '@auth0/auth0-vue';
 import useAuth from '~/composables/auth'
-import { Ref } from 'vue';
-const uploads: Ref<any[]> = ref([])
+const uploads = reactive([])
 const { getAccessTokenSilently, isAuthenticated } = useAuth0();
 const { isFetching, data, error } = useAuth(getAccessTokenSilently)('/upload').json()
 
 watchEffect(() => {
-    uploads.value = unref(data)
+    uploads.value = data
 })
 
-const handleUpload = () => {
+const upload = () => {
     const { data } = useAuth(getAccessTokenSilently)('/upload').json()
-    uploads.value = unref(data)
+    return data
 }
+
+const handleUpload = ()=>{
+    data.value = upload()
+}
+
 
 const deleteUpload = async (id: string) => {
-    useAuth(getAccessTokenSilently)('/upload/' + id, {
-        method: 'DELETE'
-    }).json()
-    uploads.value.splice(uploads.value.findIndex((upload: any) => upload.id === id), 1)
+    useAuth(getAccessTokenSilently)('/upload/' + id).json()
+    uploads.value = uploads.value.filter((upload: any) => upload.id !== id)         
 }
-
 </script>
 
 <template>
@@ -34,16 +35,18 @@ const deleteUpload = async (id: string) => {
             <div v-else-if="error">
                 <p>{{ error }}</p>
             </div>
-            <div v-else-if="!uploads">
-                <p>No uploads</p>
-            </div>
             <div v-else grid4 mt-8>
-                <div v-for="upload in uploads">
-                    <a :href="upload.url" col center>
-                        <p text-xs row >{{ upload.filename }}  <Ico m-1 icon="mdi-delete"
-                            @click.prevent="deleteUpload(upload.id)"/></p>
-                      <Ico icon="mdi-file" x4 />
-                    </a>
+                <div v-for="upload in unref(uploads.value)">
+                    <div col center>
+                        <div row><a :href="upload.url" row>
+                                <p text-xs>{{ upload.filename.length > 10 ? upload.filename.substring(0, 10):
+                                        upload.filename
+                                }} </p>
+                            </a>
+                            <Ico m-1 cp icon="mdi-delete"   @click="deleteUpload(upload.id)" />
+                        </div>
+                        <Ico icon="mdi-file" x4 />
+                    </div>
                 </div>
             </div>
         </section>

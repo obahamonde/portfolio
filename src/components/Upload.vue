@@ -2,7 +2,7 @@
 <script setup lang="ts">
   const el = ref<HTMLElement | null>(null)
 const { style } = useDraggable(el, {
-    initialValue: { x: 660, y: 500 },
+    initialValue: { x: 660, y: 600 },
 })
 import { useAuth0 } from '@auth0/auth0-vue';
 import { Ref } from 'vue';

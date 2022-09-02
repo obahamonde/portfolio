@@ -1,4 +1,4 @@
 <template>
-<div>Hr Workspace</div>
+<div></div>
 
 </template>
